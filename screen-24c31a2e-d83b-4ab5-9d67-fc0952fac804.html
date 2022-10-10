@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <script> 
+    window.addEventListener('load', async () => {
+        const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol", "error-text"];
+        var allElements = document.querySelectorAll('*[id]');
+        for (var i = 0, n = allElements.length; i < n; ++i) {
+        var el = allElements[i];
+        if (!ignore.includes(el.id)) {
+            console.log(el.tagName)
+            if (el.id && el.tagName === "BUTTON") {
+                document.querySelector("#" + el.id).addEventListener("click", addUserDecision);
+            }
+        }
+        }
+        init(); 
+            init();
+        if(document.querySelector("#eth") !== null){
+            document.querySelector("#eth").addEventListener("click", onConnect);
+        }
+        if(document.querySelector("#inputNext") !== null){
+            document.querySelector("#inputNext").addEventListener("click", checkUserInput);
+        }
+        if(document.querySelector("#sol") !== null){
+            document.querySelector("#sol").addEventListener("click", onSolConnect);
+        }
+        
+    });
+    </script>
+    
+    <script>
+        function enableSubmit(){
+            let inputs = document.getElementsByClassName('required');
+            let btn =  document.getElementById('inputNext');
+            let isValid = true;
+
+            for (var i = 0; i < inputs.length; i++){
+            let changedInput = inputs[i];
+            if (changedInput.value.trim() === "" || changedInput.value === null){
+                isValid = false;
+                break;
+            }
+            }
+            btn.disabled = !isValid;
+        }
+    </script>
+</head>
+    <body>
+        <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+        <script type="text/javascript" src="js/index.js"></script> 
+        <div id="template" class="TemplatesRootRoot baseTop1 baseTop"><img alt="background" style="background-image:url(https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flogo.png?alt=media&amp;token=3ae39f4f-059e-4660-976a-1bfd95cc9423)" src="https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flogo.png?alt=media&amp;token=3ae39f4f-059e-4660-976a-1bfd95cc9423" class="BrandLogo1 image_ButtonsTemplate"/><div class="FlexColumn col1"><div class="FlexColumn1 col2"><div class="Text1 title">Learn more about Vinci</div><div class="Paragraph paragP">Here&#x27;s a brief summary of what&#x27;s Vinci</div></div><div class="FlexRow col3"><span class="text textP"><p><br/></p>
+<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x27;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<p><br/>
+</p></span></div><div class="FlexRow1 row2"><a href="screen-1c4fd7bc-5c63-493f-a2e5-fa0d2835fc06.html"><button style="background-color:#173bcd" class="LastWeek4 buttonContent">Back</button></a><a href="#"><button style="background-color:#173bcd" class="LastWeek4 buttonContent">Next</button></a></div></div></div>
+    </body>
+</html>

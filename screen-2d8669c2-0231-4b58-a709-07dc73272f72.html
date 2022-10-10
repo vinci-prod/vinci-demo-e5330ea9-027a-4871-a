@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <script> 
+    window.addEventListener('load', async () => {
+        const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol", "error-text"];
+        var allElements = document.querySelectorAll('*[id]');
+        for (var i = 0, n = allElements.length; i < n; ++i) {
+        var el = allElements[i];
+        if (!ignore.includes(el.id)) {
+            console.log(el.tagName)
+            if (el.id && el.tagName === "BUTTON") {
+                document.querySelector("#" + el.id).addEventListener("click", addUserDecision);
+            }
+        }
+        }
+        init(); 
+            init();
+        if(document.querySelector("#eth") !== null){
+            document.querySelector("#eth").addEventListener("click", onConnect);
+        }
+        if(document.querySelector("#inputNext") !== null){
+            document.querySelector("#inputNext").addEventListener("click", checkUserInput);
+        }
+        if(document.querySelector("#sol") !== null){
+            document.querySelector("#sol").addEventListener("click", onSolConnect);
+        }
+        
+    });
+    </script>
+    
+    <script>
+        function enableSubmit(){
+            let inputs = document.getElementsByClassName('required');
+            let btn =  document.getElementById('inputNext');
+            let isValid = true;
+
+            for (var i = 0; i < inputs.length; i++){
+            let changedInput = inputs[i];
+            if (changedInput.value.trim() === "" || changedInput.value === null){
+                isValid = false;
+                break;
+            }
+            }
+            btn.disabled = !isValid;
+        }
+    </script>
+</head>
+    <body>
+        <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+        <script type="text/javascript" src="js/index.js"></script> 
+        <div id="template" class="ConnectWGradienttextureRootRoot  baseTop  baseTop1"><img alt="background" style="background-image:url(https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flogo.png?alt=media&amp;token=080f2bc9-3f09-47d7-895e-1c0508d4a52c)" src="https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flogo.png?alt=media&amp;token=080f2bc9-3f09-47d7-895e-1c0508d4a52c" class="image_ButtonsTemplate InputBrandLogo1 "/><div class="InputFlexColumn inputFlexColumn  col1"><div class="ConnectWCardsvinciOnboarding connectWCardsvinciOnboarding"><img alt="background" style="background-image:url(https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flittle_logo.png?alt=media&amp;token=996ba847-e040-4d55-b7af-fee6db980116)" src="https://firebasestorage.googleapis.com/v0/b/vinci-prod.appspot.com/o/projectData%2Fvinci-demo-e5330ea9-027a-4871-a%2Fscreen-24c31a2e-d83b-4ab5-9d67-fc0952fac804%2Flittle_logo.png?alt=media&amp;token=996ba847-e040-4d55-b7af-fee6db980116" class="ConnectWLogo connectWLogo"/><div class="ConnectWFlexColumn"><div class="ConnectWBody"><div class="ConnectWText1 title">Validate your Token</div><div class="ConnectWParagraph paragP">Connect your wallet</div></div><div class="ConnectWParagraph1 paragP">Please proceed</div></div><div class="ConnectWDividerCTA connectWDividerCTA"><div class="ConnectWFlexRow"><button id="eth" class="ConnectWLastWeek connectWLastWeek" data-address="0x2029ac0e4d7f59c3587636064b4ae60bdd56132c" data-chain="eth" data-numberofneededtokens="eth" data-href="#">Connect Wallet</button></div><div class="ConnectWDivider" src="https://file.rendit.io/n/CEh74J6Ph7HtqAeHvZtW.svg"></div><div class="ConnectWFlexRow"><a class="ConnectWLastWeek1A connectWLastWeek" href="https://opensea.io/assets/ethereum/0x2029ac0e4d7f59c3587636064b4ae60bdd56132c#" target="_blank" rel="noreferrer"><button class="ConnectWLastWeek1 connectWLastWeek">Buy on OpenSea</button></a></div></div><div id="error-text" class="ConnectWParagraph1 paragP"></div></div><div class="InputFlexRow1 row2"><a href="screen-3a0808cd-6d0d-4d17-b298-374b68f2587f.html"><button style="background-color:#193dd2" class="InputLastWeek4 buttonContent">Back</button></a></div></div></div>
+    </body>
+</html>
